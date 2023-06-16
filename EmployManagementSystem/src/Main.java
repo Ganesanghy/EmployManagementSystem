@@ -8,6 +8,9 @@ class mainmenu{
         System.out.println("Employ Management System\n" +
                 "Press 1: To add new employee details\n" +
                 "Press 2: To see exciting records");
+        System.out.println("Employ Management System\n" +
+                "Press 1: To add new employee details\n" +
+                "Press 2: To see exciting records");
     }
 }
 public class Main {
