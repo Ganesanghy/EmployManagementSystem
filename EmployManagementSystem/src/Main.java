@@ -1,7 +1,11 @@
 import java.util.Scanner;
 
 class mainmenu{
+    String name = "ganesh";
     void menu(){
+    }
+    void display(){
+        System.out.println(this.name);
     }
 }
 public class Main {
