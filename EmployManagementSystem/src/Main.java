@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 class mainmenu{
-    String name = "ganesh";
+    String name = "ravi";
     void menu(){
     }
     void display(){
