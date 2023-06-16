@@ -2,9 +2,6 @@ import java.util.Scanner;
 
 class mainmenu{
     void menu(){
-        System.out.println("Press 1: To add new employee details");
-        System.out.println("Press 2: To see exciting records");
-        System.out.println("press 3: To update");
     }
 }
 public class Main {
