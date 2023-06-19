@@ -67,9 +67,20 @@ class Employee_Add{
 
         }
 }
+class Employee_show{
+    public void viewfile(int emp_id) throws Exception{
+        String s = String.valueOf(emp_id);
+        File f1 = new File("file"+s+".txt");
+        Scanner sc = new Scanner(f1);
+        while (sc.hasNextLine()){
+            System.out.println(sc.nextLine());
+        }
+    }
+}
 class Main{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Employee_show epv = new Employee_show();
         Mainmenu me = new Mainmenu();
         me.menu();
         System.out.println("Press Enter your choice...");
@@ -78,7 +89,20 @@ class Main{
             case 1:
                 Employee_Add emp = new Employee_Add();
                 emp.createFile();
-        }
+                break;
+            case 2:
+                System.out.println("Press enter employee ID..");
+                int emp_id = sc.nextInt();
+                try{
+                    epv.viewfile(emp_id);
+                }
+                catch (Exception e){
+                    System.out.println(e);
+                }
+                System.out.println("press enter to continue...");
+                me.menu();
+                break;
 
+        }
     }
 }
