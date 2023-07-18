@@ -4,8 +4,8 @@ class Mainmenu{
     void menu(){
         System.out.println("\n\nEmployeeManagementSystem");
         System.out.println("------------------------");
-        System.out.println("\nPress 1: To an add Employee details");
-        System.out.println("Press 2: To see Employee details");
+        System.out.println("Press 1: To an add new Employee details");
+        System.out.println("Press 2: To see existing Employee details");
     }
 }
 class Employee_Detail{
@@ -47,12 +47,18 @@ class Employee_Add{
             File f1 = new File("file"+ed.Employ_id+".txt");
             if(f1.createNewFile()){
                 FileWriter myWriter = new FileWriter("file"+ed.Employ_id+".txt");
-                myWriter.write("Employee Name"+ed.Employ_name+"\n"+"Employee Id"+ed.Employ_id+"\n"+"Employee Email_ID"+ed.email+"\n"+
-                        "Employee qualification"+ed.Qualification+"\n"+"Employee position"+ed.position+"\n"+"Employee salary"+ed.Employ_salary+"\n"+
-                        "Employee age"+ed.Employ_age+"Employee YOE"+ed.yearofexp);
+                myWriter.write(
+                        "Employee ID            : "+ed.Employ_id+"\n"+
+                        "Employee Name          : "+ed.Employ_name+"\n"+
+                        "Employee Email_ID      : "+ed.email+"\n"+
+                        "Employee qualification : "+ed.Qualification+"\n"+
+                        "Employee position      : "+ed.position+"\n"+
+                        "Employee salary        : "+ed.Employ_salary+"\n"+
+                        "Employee age           : "+ed.Employ_age+"\n" +
+                        "Employee YOE           : "+ed.yearofexp);
                 myWriter.close();
                 System.out.println("\nSuccessfully added employee details");
-                System.out.println("\npress enter to continue...");
+                System.out.println("\nPress! Enter to continue...");
                 sc.nextLine();
             }
             else{
@@ -81,28 +87,33 @@ class Main{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Employee_show epv = new Employee_show();
-        Mainmenu me = new Mainmenu();
-        me.menu();
-        System.out.println("Press Enter your choice...");
-        int i = sc.nextInt();
-        switch (i){
-            case 1:
-                Employee_Add emp = new Employee_Add();
-                emp.createFile();
-                break;
-            case 2:
-                System.out.println("Press enter employee ID..");
-                int emp_id = sc.nextInt();
-                try{
-                    epv.viewfile(emp_id);
-                }
-                catch (Exception e){
-                    System.out.println(e);
-                }
-                System.out.println("press enter to continue...");
-                me.menu();
-                break;
+        Mainmenu obj = new Mainmenu();
+        obj.menu();
+       int i=0;
+        while(i<6) {
+            System.out.println("\nPress! Enter your choice...");
 
+            i = sc.nextInt();
+            switch (i) {
+                case 1:
+                    Employee_Add emp = new Employee_Add();
+                    emp.createFile();
+                    obj.menu();
+                    break;
+                case 2:
+                    System.out.println("Press! Enter employee ID..");
+                    int emp_id = sc.nextInt();
+                    try {
+                        epv.viewfile(emp_id);
+                    }
+                    catch (Exception e) {
+                        System.out.println(e);
+                    }
+                    System.out.println("Press! Enter to continue...");
+                    sc.nextLine();
+                    obj.menu();
+                    break;
+            }
         }
     }
 }
